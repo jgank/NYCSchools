@@ -34,8 +34,14 @@ class DetailViewController: UIViewController {
         let writingScore:Int? = Int((school?.satWriting)!)
 
         
-        combinedLabel.text = String(mathScore! + readScore! + writingScore!)
-        
+        if mathScore != nil && readScore != nil && writingScore != nil {
+            combinedLabel.text = String(mathScore! + readScore! + writingScore!)
+        } else {
+            mathLabel.text = ""
+            readingLabel.text = ""
+            writingLabel.text = ""
+            combinedLabel.text = ""
+        }
     }
 
     override func didReceiveMemoryWarning() {
